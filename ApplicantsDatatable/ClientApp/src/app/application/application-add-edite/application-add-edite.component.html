@@ -1,0 +1,80 @@
+<form [formGroup]="ApplicationFormGroup" (ngSubmit)="onApplicationSubmitForm()">
+  <div class="mb-3">
+    <label for="exampleInputName" class="form-label">Name</label>
+    <input type="text" formControlName="Name" [ngClass]="{'is-invalid' : ApplicationFormGroup.controls['Name'].invalid&&(ApplicationFormGroup.controls['Name'].touched||ApplicationFormGroup.controls['Name'].dirty)}" class="form-control " id="exampleInputName" aria-describedby="emailHelp">
+    <div *ngIf="ApplicationFormGroup.controls['Name'].invalid&&(ApplicationFormGroup.controls['Name'].touched||ApplicationFormGroup.controls['Name'].dirty)" class="invalid-feedback">
+      <span class="form-text error mt-1" *ngIf="ApplicationFormGroup.controls['Name'].errors['required']">Must Enter Value</span>
+
+      <span class="form-text error mt-1" *ngIf="ApplicationFormGroup.controls['Name'].errors['minlength']">Must  Value at least 5 char</span>
+
+
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputFamily" class="form-label">Family Name </label>
+    <input type="text" formControlName="FamilyName" [ngClass]="{'is-invalid' : ApplicationFormGroup.controls['FamilyName'].invalid&&(ApplicationFormGroup.controls['FamilyName'].touched||ApplicationFormGroup.controls['FamilyName'].dirty)}" class="form-control " id="exampleInputFamily">
+    <div *ngIf="ApplicationFormGroup.controls['FamilyName'].invalid&&(ApplicationFormGroup.controls['FamilyName'].touched||ApplicationFormGroup.controls['FamilyName'].dirty)" class="invalid-feedback">
+      <span class="form-text error mt-1" *ngIf="ApplicationFormGroup.controls['FamilyName'].errors['required']">Must Enter Value</span>
+
+      <span class="form-text error mt-1" *ngIf="ApplicationFormGroup.controls['FamilyName'].errors['minlength']">Must  Value at least 5 char</span>
+
+
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputAddress" class="form-label">Address  </label>
+    <input type="text" formControlName="Address" [ngClass]="{'is-invalid' : ApplicationFormGroup.controls['Address'].invalid&&(ApplicationFormGroup.controls['Address'].touched||ApplicationFormGroup.controls['Address'].dirty)}" class="form-control " id="exampleInputAddress">
+    <div *ngIf="ApplicationFormGroup.controls['Address'].invalid&&(ApplicationFormGroup.controls['Address'].touched||ApplicationFormGroup.controls['Address'].dirty)" class="invalid-feedback">
+      <span class="form-text error mt-1" *ngIf="ApplicationFormGroup.controls['Address'].errors['required']">Must Enter Value</span>
+
+      <span class="form-text error mt-1" *ngIf="ApplicationFormGroup.controls['Address'].errors['minlength']">Must  Value at least 10 char</span>
+
+
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputCountry" class="form-label">Country Of Origin </label>
+    <input type="text" formControlName="Country" [ngClass]="{'is-invalid' : ApplicationFormGroup.controls['Country'].invalid&&(ApplicationFormGroup.controls['Country'].touched||ApplicationFormGroup.controls['Country'].dirty)}" class="form-control " id="exampleInputCountry">
+    <div *ngIf="ApplicationFormGroup.controls['Country'].invalid&&(ApplicationFormGroup.controls['Country'].touched||ApplicationFormGroup.controls['Country'].dirty)" class="invalid-feedback">
+      <span class="form-text error mt-1" *ngIf="ApplicationFormGroup.controls['Country'].errors['required']">Must Enter Value</span>
+
+
+
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputEMail" class="form-label">EMail Adress </label>
+    <input type="email" formControlName="EMail" [ngClass]="{'is-invalid' : ApplicationFormGroup.controls['EMail'].invalid&&(ApplicationFormGroup.controls['EMail'].touched||ApplicationFormGroup.controls['EMail'].dirty)}" class="form-control " id="exampleInputEMail">
+    <div *ngIf="ApplicationFormGroup.controls['EMail'].invalid&&(ApplicationFormGroup.controls['EMail'].touched||ApplicationFormGroup.controls['EMail'].dirty)" class="invalid-feedback">
+      <span class="form-text error mt-1" *ngIf="ApplicationFormGroup.controls['EMail'].errors['required']">Must Enter Value</span>
+
+      <span class="form-text error mt-1" *ngIf="ApplicationFormGroup.controls['EMail'].errors['email']">Must  enter valid email</span>
+
+
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputAge" class="form-label">Age </label>
+    <input type="number" formControlName="Age" [ngClass]="{'is-invalid' : ApplicationFormGroup.controls['Age'].invalid&&(ApplicationFormGroup.controls['Age'].touched||ApplicationFormGroup.controls['Age'].dirty)}" class="form-control " id="exampleInputAge">
+    <div *ngIf="ApplicationFormGroup.controls['Age'].invalid&&(ApplicationFormGroup.controls['Age'].touched||ApplicationFormGroup.controls['Age'].dirty)" class="invalid-feedback">
+      <span class="form-text error mt-1" *ngIf="ApplicationFormGroup.controls['Age'].errors['required']">Must Enter Value</span>
+      <span class="form-text error mt-1" *ngIf="ApplicationFormGroup.controls['Age'].errors['max']||ApplicationFormGroup.controls['Age'].errors['min']">Must  value range 20 to 60</span>
+
+
+
+    </div>
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" formControlName="Hired" class="form-check-input" id="exampleCheck1">
+
+    <label class="form-check-label" for="exampleCheck1">Hired </label>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Save</button>
+
+  <button type="button" [routerLink]="'/application'" style="margin-left: 20px" class="btn btn-primary">Back</button>
+</form>

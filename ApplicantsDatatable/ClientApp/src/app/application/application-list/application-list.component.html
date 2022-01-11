@@ -1,0 +1,36 @@
+<button class="btn btn-primary" [routerLink]="'/application/add-edite'">Add New Application</button>
+
+<ng-container *ngIf="applicationlist.length>0">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Family Name</th>
+        <th scope="col">EMail Adress</th>
+        <th scope="col">Hired</th>
+
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let app of applicationlist">
+        <td>{{app.Name}}</td>
+        <td>{{app.FamilyName}}</td>
+        <td>{{app.EMailAdress}}</td>
+        <td>{{app.Hired?'provided':'not provided'}}</td>
+        <td>
+          <button class="btn btn-primary" (click)="deletemodeldata(app)">delete</button>
+          <button class="btn btn-primary" (click)="Edit(app)">Edit</button>
+        </td>
+      </tr>
+
+
+    </tbody>
+  </table>
+</ng-container>
+
+<ng-container *ngIf="applicationlist.length==0">
+
+
+  <p>there is no Application</p>
+</ng-container>
